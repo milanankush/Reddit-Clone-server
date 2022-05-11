@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    // origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -143,6 +143,7 @@ app.get("/comments/:id", (req, res) => {
 
 app.post("/comments", (req, res) => {
   const token = req.cookies.token;
+  console.log(token);
   if (!token) {
     res.sendStatus(401);
     return;
